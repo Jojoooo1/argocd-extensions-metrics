@@ -209,7 +209,7 @@ data:
                         "graphType": "line",
                         "metricName": "rollout_template_hash",
                         "queryExpression": "sum(rate(http_server_requests_seconds_sum{namespace=\"{{.namespace}}\", status=\"200\"} [1m])) by (rollout_template_hash)"
-                      
+                      }
                     ]
                   },
                   {
