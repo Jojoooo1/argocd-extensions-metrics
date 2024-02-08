@@ -92,6 +92,59 @@ data:
                         "queryExpression": "sum(rate(container_memory_usage_bytes{pod=~\"{{.name}}\", image!=\"\", container!=\"POD\", container!=\"\", container_name!=\"POD\"}[5m])) by (container)"
                       }
                     ]
+                  },
+                  {
+                    "name": "httplatency",
+                    "title": "HTTP Latency",
+                    "tab": "Golden Signal",
+                    "graphs": [
+                      {
+                        "name": "http_200_latency",
+                        "title": "Latency",
+                        "description": "",
+                        "graphType": "line",
+                        "metricName": "pod",
+                        "queryExpression": "sum(rate(http_server_requests_seconds_sum{namespace=\"{{.namespace}}\", status=\"200\"} [1m])) by (pod)"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "httperrortate",
+                    "title": "HTTP Error Rate",
+                    "tab": "Golden Signal",
+                    "graphs": [
+                      {
+                        "name": "http_error_rate_500",
+                        "title": "HTTP Error 500",
+                        "description": "",
+                        "graphType": "line",
+                        "metricName": "pod",
+                        "queryExpression": "sum(rate(http_server_requests_seconds_count{namespace=\"{{.namespace}}\", status=\"500\"} [1m])) by (pod)"
+                      },
+                      {
+                        "name": "http_error_rate_400",
+                        "title": "HTTP Error 400",
+                        "description": "",
+                        "graphType": "line",
+                        "metricName": "pod",
+                        "queryExpression": "sum(rate(http_server_requests_seconds_count{namespace=\"{{.namespace}}\", status=\"404\"} [1m])) by (pod)"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "httptraffic",
+                    "title": "HTTP Traffic",
+                    "tab": "Golden Signal",
+                    "graphs": [
+                      {
+                        "name": "http_traffic",
+                        "title": "Traffic",
+                        "description": "",
+                        "graphType": "line",
+                        "metricName": "pod",
+                        "queryExpression": "sum(rate(http_server_requests_seconds_count{namespace=\"{{.namespace}}\"} [1m])) by (pod)"
+                      }
+                    ]
                   }
                 ]
               },
