@@ -6,16 +6,26 @@ data:
   config.json: |
     {
       "prometheus": {
+
         "applications": [
           {
             "name": "default",
             "default": true,
             "dashboards": [
+
               {
                 "groupKind": "pod",
                 "tabs": ["Golden Signal"],
+                "intervals": [
+                  "10m",
+                  "30m",
+                  "1h",
+                  "3h",
+                  "6h",
+                  "12h"
+                ],
                 "rows": [
-                      {
+                  {
                     "name": "pod",
                     "title": "Pods",
                     "tab": "Golden Signal",
@@ -54,6 +64,7 @@ data:
                       }
                     ]
                   },
+
                   {
                     "name": "container",
                     "title": "Containers",
@@ -93,6 +104,7 @@ data:
                       }
                     ]
                   },
+
                   {
                     "name": "httplatency",
                     "title": "HTTP Latency",
@@ -148,9 +160,19 @@ data:
                   }
                 ]
               },
+
+
               {
                 "groupKind": "deployment",
                 "tabs": ["Golden Signal"],
+                "intervals": [
+                  "10m",
+                  "30m",
+                  "1h",
+                  "3h",
+                  "6h",
+                  "12h"
+                ],
                 "rows": [
                   {
                     "name": "httplatency",
@@ -246,9 +268,19 @@ data:
                   }
                 ]
               },
+
+
               {
                 "groupKind": "rollout",
                 "tabs": ["Golden Signal"],
+                "intervals": [
+                  "10m",
+                  "30m",
+                  "1h",
+                  "3h",
+                  "6h",
+                  "12h"
+                ],
                 "rows": [
                   {
                     "name": "httplatency",
@@ -347,6 +379,7 @@ data:
             ]
           }
         ],
+
         "provider":
         {
           "Name": "default",
